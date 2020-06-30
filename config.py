@@ -6,31 +6,18 @@ Created on Tue Jun 30 21:27:50 2020
 """
 
 # datafile and model name
-TRAINING_FILE = "cleaned_data.csv"
+TRAINING_DATA_FILE = "cleaned_data.csv"
 PIPELINE_NAME = "classification_model.pickle"
 
 # target feature
 TARGET = "target"
 
 # features
-FEATURES = ['age',
-         'resting_blood_pressure',
-         'cholesterol',
-         'max_heart_rate_achieved',
-         'st_depression',
-         'num_major_vessels',
-         'sex_male',
-         'chest_pain_type_atypical angina',
-         'chest_pain_type_non-anginal pain',
-         'chest_pain_type_typical angina',
-         'fasting_blood_sugar_lower than 120mg/dl',
-         'rest_ecg_left ventricular hypertrophy',
-         'rest_ecg_normal',
-         'exercise_induced_angina_yes',
-         'st_slope_flat',
-         'st_slope_upsloping',
-         'thalassemia_normal',
-         'thalassemia_reversable defect']
+FEATURES = ['age', 'sex', 'chest_pain_type', 'resting_blood_pressure',
+       'cholesterol', 'fasting_blood_sugar', 'rest_ecg',
+       'max_heart_rate_achieved', 'exercise_induced_angina', 'st_depression',
+       'st_slope', 'num_major_vessels', 'thalassemia']
+
 
 # variables to transform
 LOG_VARIABLES = ['age', 'resting_blood_pressure', 
