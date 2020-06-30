@@ -12,6 +12,26 @@ PIPELINE_NAME = "classification_model.pickle"
 # target feature
 TARGET = "target"
 
+# features
+FEATURES = ['age',
+         'resting_blood_pressure',
+         'cholesterol',
+         'max_heart_rate_achieved',
+         'st_depression',
+         'num_major_vessels',
+         'sex_male',
+         'chest_pain_type_atypical angina',
+         'chest_pain_type_non-anginal pain',
+         'chest_pain_type_typical angina',
+         'fasting_blood_sugar_lower than 120mg/dl',
+         'rest_ecg_left ventricular hypertrophy',
+         'rest_ecg_normal',
+         'exercise_induced_angina_yes',
+         'st_slope_flat',
+         'st_slope_upsloping',
+         'thalassemia_normal',
+         'thalassemia_reversable defect']
+
 # variables to transform
 LOG_VARIABLES = ['age', 'resting_blood_pressure', 
                  'cholesterol', 'max_heart_rate_achieved', 'st_depression']
