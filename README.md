@@ -1,2 +1,2 @@
 # Heart Disease Classifier
-https://heartdisease-classifier.herokuapp.com/predict
+https://heartdisease-classifier.herokuapp.com/
