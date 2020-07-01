@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <title>Heart Disease Classification</title>
+  </head>
+  <body>
+    <!-- Page Content along with Footer -->
+    <div class="page-container">
+      <!-- Page Content -->
+      <div class="header bg-dark">
+        <div class="text-white text-center py-4 px-4">
+          <div>
+            <h1 class="h1-responsive pt-3 mb-5 font-bold">
+              <strong
+                ><a href="/" class="text-white" style="text-decoration: none;"
+                  >Heart Disease Classification</a
+                ></strong
+              >
+            </h1>
+            <p class="mx-5 mb-5">
+              <!-- Predict the MPG Score of your with an accuracy of 91% -->
+            </p>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <h2 class="text-center">{{result}}</h2>
+      <!-- Form -->
+      <div class="form-content bg-warning-300 content-wrap">
+        <div class="container">
+          <br />
+          <form method="POST" action="/predict">
+            <div class="row">
+              <div class="col form-group">
+                <label for="age">Please state your age:</label>
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="age"
+                  name="age"
+                  value="63"
+                  required
+                />
+              </div>
+              <div class="col form-group">
+                <label>Please state your sex:</label>
+                <br />
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sex"
+                    id="sex_male"
+                    checked
+                    value="male"
+                  />
+                  <label class="form-check-label" for="sex_male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="sex"
+                    id="sex_female"
+                    value="female"
+                  />
+                  <label class="form-check-label" for="sex_female"
+                    >Female</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col form-group">
+                <label for="chest_pain_type"
+                  >What is the type of chest pain you have?</label
+                >
+                <select
+                  class="form-control"
+                  name="chest_pain_type"
+                  id="chest_pain_type"
+                  required
+                >
+                  <option value="typical angina">typical angina</option>
+                  <option value="asymptomatic">asymptomatic</option>
+                  <option value="non-anginal pain">non-anginal pain</option>
+                  <option value="atypical angina">atypical angina</option>
+                </select>
+              </div>
+              <div class="col form-group">
+                <label for="resting_blood_pressure"
+                  >What is your resting blood pressure?</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="resting_blood_pressure"
+                  name="resting_blood_pressure"
+                  value="100"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col form-group">
+                <label for="cholesterol"
+                  >What is your cholesterol measurement in mg/dl?</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="cholesterol"
+                  name="cholesterol"
+                  value="233"
+                  required
+                />
+              </div>
+              <div class="col form-group">
+                <label for="fasting_blood_sugar"
+                  >What is your fasting blood sugar?</label
+                >
+                <select
+                  class="form-control"
+                  name="fasting_blood_sugar"
+                  id="fasting_blood_sugar"
+                  required
+                >
+                  <option value="greater than 120mg/dl"
+                    >greater than 120mg/dl</option
+                  >
+                  <option value="lower than 120mg/dl"
+                    >lower than 120mg/dl</option
+                  >
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col form-group">
+                <label for="rest_ecg">rest_ecg</label>
+                <select
+                  class="form-control"
+                  name="rest_ecg"
+                  id="rest_ecg"
+                  required
+                >
+                  <option value="left ventricular hypertrophy"
+                    >left ventricular hypertrophy</option
+                  >
+                  <option value="normal">normal</option>
+                  <option value="ST-T wave abnormality"
+                    >ST-T wave abnormality</option
+                  >
+                </select>
+              </div>
+              <div class="col form-group">
+                <label for="max_heart_rate_achieved"
+                  >max_heart_rate_achieved</label
+                >
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="max_heart_rate_achieved"
+                  name="max_heart_rate_achieved"
+                  value="150"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col form-group">
+                <label>exercise_induced_angina</label>
+                <br />
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exercise_induced_angina"
+                    id="exercise_induced_angina_yes"
+                    checked
+                    value="yes"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exercise_induced_angina_yes"
+                    >Yes</label
+                  >
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="exercise_induced_angina"
+                    id="exercise_induced_angina_no"
+                    value="no"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="exercise_induced_angina_no"
+                    >No</label
+                  >
+                </div>
+              </div>
+              <div class="col form-group">
+                <label for="st_depression">st_depression</label>
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="st_depression"
+                  name="st_depression"
+                  value="2.3"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col form-group">
+                <label for="st_slope">st_slope</label>
+                <select
+                  class="form-control"
+                  name="st_slope"
+                  id="st_slope"
+                  required
+                >
+                  <option value="downsloping">downsloping</option>
+                  <option value="flat">flat</option>
+                  <option value="upsloping">upsloping</option>
+                </select>
+              </div>
+              <div class="col form-group">
+                <label for="num_major_vessels">num_major_vessels</label>
+                <input
+                  type="number"
+                  step="any"
+                  class="form-control"
+                  id="num_major_vessels"
+                  name="num_major_vessels"
+                  value="0"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col form-group">
+                <label for="thalassemia">thalassemia</label>
+                <select
+                  class="form-control"
+                  name="thalassemia"
+                  id="thalassemia"
+                  required
+                >
+                  <option value="fixed defect">fixed defect</option>
+                  <option value="normal">normal</option>
+                  <option value="reversable defect">reversable defect</option>
+                </select>
+              </div>
+              <div class="col form-group"></div>
+            </div>
+            <button type="submit" class="btn btn-info btn-block">
+              Predict
+            </button>
+          </form>
+          <br />
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer font-small bg-dark">
+        <br />
+        <div class="contact text-center text-white">
+          <a target="_blank" href="#"
+            ><i class="fa fa-github fa-lg contact-icon"></i
+          ></a>
+          <a target="_blank" href="https://www.linkedin.com/in/rekib0023/"
+            ><i class="fa fa-linkedin fa-lg contact-icon"></i
+          ></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-white text-center py-3">
+          <p class="footer-description">Made with ❤️ by Rekib Ahmed.</p>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
+    </div>
+  </body>
+</html>
