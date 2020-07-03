@@ -61,7 +61,7 @@
                   class="form-control"
                   id="age"
                   name="age"
-                  value="63"
+                  value="{{ data['age'] }}"
                   required
                 />
               </div>
@@ -120,7 +120,7 @@
                   class="form-control"
                   id="resting_blood_pressure"
                   name="resting_blood_pressure"
-                  value="100"
+                  value="{{ data['resting_blood_pressure'] }}"
                   required
                 />
               </div>
@@ -136,7 +136,7 @@
                   class="form-control"
                   id="cholesterol"
                   name="cholesterol"
-                  value="233"
+                  value="{{ data['cholesterol'] }}"
                   required
                 />
               </div>
@@ -161,7 +161,7 @@
             </div>
             <div class="row">
               <div class="col form-group">
-                <label for="rest_ecg">rest_ecg</label>
+                <label for="rest_ecg">Select resting electrocardiographic measurement</label>
                 <select
                   class="form-control"
                   name="rest_ecg"
@@ -179,7 +179,7 @@
               </div>
               <div class="col form-group">
                 <label for="max_heart_rate_achieved"
-                  >max_heart_rate_achieved</label
+                  >What is the max heart rate achieved?</label
                 >
                 <input
                   type="number"
@@ -187,14 +187,14 @@
                   class="form-control"
                   id="max_heart_rate_achieved"
                   name="max_heart_rate_achieved"
-                  value="150"
+                  value="{{ data['max_heart_rate_achieved'] }}"
                   required
                 />
               </div>
             </div>
             <div class="row">
               <div class="col form-group">
-                <label>exercise_induced_angina</label>
+                <label>Do you have exercise induced angina?</label>
                 <br />
                 <div class="form-check form-check-inline">
                   <input
@@ -227,21 +227,21 @@
                 </div>
               </div>
               <div class="col form-group">
-                <label for="st_depression">st_depression</label>
+                <label for="st_depression">ST depression induced by exercise relative to rest: </label>
                 <input
                   type="number"
                   step="any"
                   class="form-control"
                   id="st_depression"
                   name="st_depression"
-                  value="2.3"
+                  value="{{ data['st_depression'] }}"
                   required
                 />
               </div>
             </div>
             <div class="row">
               <div class="col form-group">
-                <label for="st_slope">st_slope</label>
+                <label for="st_slope">Select the slope of the peak exercise ST segment: </label>
                 <select
                   class="form-control"
                   name="st_slope"
@@ -254,21 +254,21 @@
                 </select>
               </div>
               <div class="col form-group">
-                <label for="num_major_vessels">num_major_vessels</label>
+                <label for="num_major_vessels">State the number of major vessels</label>
                 <input
                   type="number"
                   step="any"
                   class="form-control"
                   id="num_major_vessels"
                   name="num_major_vessels"
-                  value="0"
+                  value="{{ data['num_major_vessels'] }}"
                   required
                 />
               </div>
             </div>
             <div class="row">
               <div class="col form-group">
-                <label for="thalassemia">thalassemia</label>
+                <label for="thalassemia">Select the level of thalassemia:</label>
                 <select
                   class="form-control"
                   name="thalassemia"

@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('index.html')
+    return render_template('index.html', data=config.TEST_VALUE)
 
 
 @app.route('/predict', methods=['POST'])
@@ -41,7 +41,7 @@ def predict():
         data = pd.DataFrame(json_data, index=[0], columns=config.FEATURES)
         prediction = pipeline.predict_proba(data)
         result = f'You are {np.round(float(prediction[:, 1]*100), 2)}% likely to have any heart disease'
-    return render_template('index.html', result=result)
+        return render_template('result.html', result=result)
 
 
 @app.route('/predict_via_postman', methods=['POST'])
@@ -51,7 +51,6 @@ def predict_via_postman():
         data = pd.DataFrame(json_data, index=[0], columns=config.FEATURES)
 
     prediction = pipeline.predict(data)
-    # print(prediction)
     return str(prediction)
 
 
