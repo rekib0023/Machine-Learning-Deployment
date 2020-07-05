@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cardiovascular Disease Detection</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+  </head>
+  <body>
+    <div class="page-container">
+      {% if json_data %}
+      <div class="result">
+        {{json_data}}
+      </div>
+      {% else %}
+      <div class="container col-6 page-content">
+        <h1 class="title text-center">Cardiovascular Disease Detection</h1>
+        <div class="frame content-wrap">
+          <form action="/predict" method="POST" class="form">
+            <label for="age">State your age.</label>
+            <input class="form-styling" type="text" name="age" placeholder="" />
+            <label for="gender">Select your gender.</label>
+            <select class="form-styling" name="gender" id="gender" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <label for="height">State your height.</label>
+            <input
+              class="form-styling"
+              type="text"
+              name="height"
+              placeholder=""
+            />
+            <label for="weight">State your weight.</label>
+            <input
+              class="form-styling"
+              type="text"
+              name="weight"
+              placeholder=""
+            />
+            <label for="systolic_blood_pressure"
+              >State your systolic blood pressure.</label
+            >
+            <input
+              class="form-styling"
+              type="text"
+              name="systolic_blood_pressure"
+              placeholder=""
+            />
+            <label for="diastolic_blood_pressure"
+              >State diastolic blood pressure.</label
+            >
+            <input
+              class="form-styling"
+              type="text"
+              name="diastolic_blood_pressure"
+              placeholder=""
+            />
+            <label for="cholesterol">Select your cholesterol level.</label>
+            <select
+              class="form-styling"
+              name="cholesterol"
+              id="cholesterol"
+              required
+            >
+              <option value="normal">Normal</option>
+              <option value="above normal">Above Normal</option>
+              <option value="wel above normal">Well Above Normal</option>
+            </select>
+            <label for="glucose_level">Select your glucose level.</label>
+            <select
+              class="form-styling"
+              name="glucose_level"
+              id="glucose_level"
+              required
+            >
+              <option value="normal">Normal</option>
+              <option value="above normal">Above Normal</option>
+              <option value="wel above normal">Well Above Normal</option>
+            </select>
+            <label for="smoking">Do you smoke?</label>
+            <select class="form-styling" name="smoking" id="smoking" required>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <label for="alcohol_intake">Do you consume alcohol?</label>
+            <select
+              class="form-styling"
+              name="alcohol_intake"
+              id="alcohol_intake"
+              required
+            >
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <label for="physical_activity"
+              >Do you do any physical activity?</label
+            >
+            <select
+              class="form-styling"
+              name="physical_activity"
+              id="physical_activity"
+              required
+            >
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <button class="btn-animate">
+              <a class="btn-submit">Predict</a>
+            </button>
+          </form>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    <!-- Footer -->
+    <footer class="footer font-small bg-dark">
+      <br />
+      <div class="contact text-center text-white">
+        <a target="_blank" href="https://github.com/rekib0023/"
+          ><i class="fa fa-github fa-lg contact-icon"></i
+        ></a>
+        <a target="_blank" href="https://www.linkedin.com/in/rekib0023/"
+          ><i class="fa fa-linkedin fa-lg contact-icon"></i
+        ></a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-white text-center py-3">
+        <p class="footer-description">Made with ❤️ by Rekib Ahmed.</p>
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+  </body>
+</html>
