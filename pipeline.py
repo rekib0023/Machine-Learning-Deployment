@@ -29,6 +29,7 @@ level1 = LogisticRegression()
 pipeline = Pipeline(
     [
         ('log_transformer', pp.LogTransformer(variables=config.NUMERICAL_FEATURES)),
+        ('cat_encoder', pp.CategoricalEncoding()),
         ('classification_model', StackingClassifier(estimators=level0, final_estimator=level1, n_jobs=1))
     ]
 )
