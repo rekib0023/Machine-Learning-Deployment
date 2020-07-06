@@ -80,7 +80,7 @@ label {
 }
 
 .form select{
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .form input:focus,
@@ -90,6 +90,14 @@ textarea:focus {
   border: none;
   transition: background 0.5s ease;
   font-size: 1.1rem;
+}
+
+.form select {
+  /* color: rgba(35, 0, 18, 0.61); */
+}
+
+.form input::placeholder {
+  color: rgba(35, 0, 18, 0.61);
 }
 
 .btn-animate {
