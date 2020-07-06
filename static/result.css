@@ -33,6 +33,73 @@ html, body {
 .result {
   color: whitesmoke;
   font-family: "Montserrat", sans-serif;
-  font-weight: ;
+  /* font-weight: ; */
   letter-spacing: .1rem;
 }
+
+/* Button Styles */
+
+.btn-wrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  font-family: "Montserrat", sans-serif;
+  font-size: .9rem;
+  display: inline-flex;
+  height: 40px;
+  width: 150px;
+  border: 4px solid whitesmoke;
+  margin: 20px 20px 20px 20px;
+  color: whitesmoke;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+a {
+  color: whitesmoke;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+
+/* Fifth Button */
+
+#button-5 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button-5 a {
+  font-weight: 700;
+  position: relative;
+  transition: all .45s ease-Out;
+}
+
+#translate {
+  transform: rotate(50deg);
+  width: 100%;
+  height: 250%;
+  left: -200px;
+  top: -30px;
+  background: whitesmoke;
+  position: absolute;
+  transition: all .3s ease-Out;
+}
+
+#button-5:hover #translate {
+  left: 0;
+}
+
+#button-5:hover a {
+  color: #2D3142;
+}
+
