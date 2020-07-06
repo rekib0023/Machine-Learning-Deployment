@@ -2,8 +2,8 @@
 
 html,
 body {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   color: white;
   margin: 0;
   padding: 0;
@@ -44,6 +44,8 @@ body {
 .title {
   font-family: "Playfair Display", serif;
   font-size: 3rem;
+  letter-spacing: .5rem;
+  line-height: 4rem;
 }
 
 .form {
@@ -77,7 +79,12 @@ label {
   outline: none;
 }
 
+.form select{
+  font-size: 1rem;
+}
+
 .form input:focus,
+.form select:focus,
 textarea:focus {
   background: rgba(255, 255, 255, 0.3);
   border: none;
@@ -106,10 +113,6 @@ button:focus {
   cursor: pointer;
   background-color: #0f4fe6;
   transition: background-color;
-}
-
-.result {
-  color: whitesmoke;
 }
 
 .footer {

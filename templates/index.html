@@ -25,17 +25,12 @@
   </head>
   <body>
     <div class="page-container">
-      {% if json_data %}
-      <div class="result">
-        {{json_data}}
-      </div>
-      {% else %}
       <div class="container col-6 page-content">
         <h1 class="title text-center">Cardiovascular Disease Detection</h1>
         <div class="frame content-wrap">
           <form action="/predict" method="POST" class="form">
             <label for="age">State your age.</label>
-            <input class="form-styling" type="number" name="age" placeholder="" />
+            <input class="form-styling" type="text" name="age" placeholder="" />
             <label for="gender">Select your gender.</label>
             <select class="form-styling" name="gender" id="gender" required>
               <option value="male">Male</option>
@@ -44,14 +39,14 @@
             <label for="height">State your height.</label>
             <input
               class="form-styling"
-              type="number"
+              type="text"
               name="height"
               placeholder=""
             />
             <label for="weight">State your weight.</label>
             <input
               class="form-styling"
-              type="number"
+              type="text"
               name="weight"
               placeholder=""
             />
@@ -60,7 +55,7 @@
             >
             <input
               class="form-styling"
-              type="number"
+              type="text"
               name="systolic_blood_pressure"
               placeholder=""
             />
@@ -69,7 +64,7 @@
             >
             <input
               class="form-styling"
-              type="number"
+              type="text"
               name="diastolic_blood_pressure"
               placeholder=""
             />
@@ -128,7 +123,6 @@
           </form>
         </div>
       </div>
-      {% endif %}
     </div>
     <!-- Footer -->
     <footer class="footer font-small bg-dark">
